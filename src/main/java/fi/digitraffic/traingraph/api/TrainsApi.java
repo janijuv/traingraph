@@ -84,10 +84,12 @@ public class TrainsApi {
         final String[] localVarContentTypes = {  };
         final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
+        localVarHeaderParams.add(HttpHeaders.ACCEPT_ENCODING, "gzip");
+
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<byte[]> localReturnType = new ParameterizedTypeReference<byte[]>() {};
-        return apiClient.invokeAPI("/api/v1/trains/gtfs-all.zip", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains/gtfs-all.zip", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
     }
     /**
      * Returns GTFS zip file
@@ -130,7 +132,7 @@ public class TrainsApi {
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<byte[]> localReturnType = new ParameterizedTypeReference<byte[]>() {};
-        return apiClient.invokeAPI("/api/v1/trains/gtfs-passenger.zip", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains/gtfs-passenger.zip", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
     }
     /**
      * Returns GTFS Realtime locations
@@ -173,7 +175,7 @@ public class TrainsApi {
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<byte[]> localReturnType = new ParameterizedTypeReference<byte[]>() {};
-        return apiClient.invokeAPI("/api/v1/trains/gtfs-rt-locations", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains/gtfs-rt-locations", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
     }
     /**
      * Returns GTFS Realtime updates
@@ -216,7 +218,7 @@ public class TrainsApi {
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<byte[]> localReturnType = new ParameterizedTypeReference<byte[]>() {};
-        return apiClient.invokeAPI("/api/v1/trains/gtfs-rt-updates", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains/gtfs-rt-updates", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
     }
     /**
      * Returns latest train
@@ -274,7 +276,7 @@ public class TrainsApi {
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<List<Train>> localReturnType = new ParameterizedTypeReference<List<Train>>() {};
-        return apiClient.invokeAPI("/api/v1/trains/latest/{train_number}", HttpMethod.GET, uriVariables, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains/latest/{train_number}", HttpMethod.GET, uriVariables, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
     }
     /**
      * Returns a specific train
@@ -343,7 +345,7 @@ public class TrainsApi {
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<List<Train>> localReturnType = new ParameterizedTypeReference<List<Train>>() {};
-        return apiClient.invokeAPI("/api/v1/trains/{departure_date}/{train_number}", HttpMethod.GET, uriVariables, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains/{departure_date}/{train_number}", HttpMethod.GET, uriVariables, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
     }
     /**
      * Returns trains run on {departure_date}
@@ -401,7 +403,19 @@ public class TrainsApi {
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<List<Train>> localReturnType = new ParameterizedTypeReference<List<Train>>() {};
-        return apiClient.invokeAPI("/api/v1/trains/{departure_date}", HttpMethod.GET, uriVariables, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        System.out.println(
+        "https://rata.digitraffic.fi/api/v1/trains/");
+        System.out.println("" + departureDate + HttpMethod.GET 
+        + uriVariables + localVarQueryParams 
+        + localVarPostBody + localVarHeaderParams 
+        + localVarCookieParams + localVarFormParams + localVarAccept 
+        + localVarContentType + localVarAuthNames + localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains/" + departureDate, 
+          HttpMethod.GET, uriVariables, 
+          localVarQueryParams, localVarPostBody, 
+          localVarHeaderParams, localVarCookieParams, 
+          localVarFormParams, localVarAccept, 
+          localVarContentType, localVarAuthNames, localReturnType);
     }
     /**
      * Returns trains that are newer than {version}
@@ -449,6 +463,6 @@ public class TrainsApi {
         String[] localVarAuthNames = new String[] {  };
 
         ParameterizedTypeReference<List<Train>> localReturnType = new ParameterizedTypeReference<List<Train>>() {};
-        return apiClient.invokeAPI("/api/v1/trains", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
+        return apiClient.invokeAPI("https://rata.digitraffic.fi/api/v1/trains", HttpMethod.GET, Collections.<String, Object>emptyMap(), localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localReturnType);
     }
 }
