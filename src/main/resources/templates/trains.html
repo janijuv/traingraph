@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Digitraffic Trains</title>
+</head>
+<body>
+<div class="nav-toolbar">
+  <input type="hidden" id="current-sheet-name" name="current-sheet-name" value="hkilpv">
+  <input type="hidden" id="start-date" name="start-date" value="8.1.2026">
+  <input type="hidden" id="min-date" name="start-date" value="16.3.2014">
+  <input type="hidden" id="max-date" name="start-date" value="28.3.2026">
+  <div class="" id="toolbar">
+    <ul class="nav navbar-nav">
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#" title="Tuntia vaakasuunnassa">
+          <i class="fa fa-arrows-h"></i> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#" class="menu-hours" data-hours="1"><i class="fa fa-clock-o"></i> 1 tunti</a></li>
+          <li><a href="#" class="menu-hours" data-hours="2"><i class="fa fa-clock-o"></i> 2 tuntia</a></li>
+          <li><a href="#" class="menu-hours" data-hours="3"><i class="fa fa-clock-o"></i> 3 tuntia</a></li>
+          <li><a href="#" class="menu-hours" data-hours="4"><i class="fa fa-clock-o"></i> 4 tuntia</a></li>
+          <li><a href="#" class="menu-hours" data-hours="6"><i class="fa fa-clock-o"></i> 6 tuntia</a></li>
+          <li><a href="#" class="menu-hours" data-hours="8"><i class="fa fa-clock-o"></i> 8 tuntia</a></li>
+          <li><a href="#" class="menu-hours" data-hours="12"><i class="fa fa-clock-o"></i> 12 tuntia</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="hidden-xxs-inline dropdown-toggle" href="#" title="Osia pystysuunnassa">
+          <i class="fa fa-arrows-v"></i> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#" class="menu-count" data-count="1"><i class="fa fa-bars"></i> 1 osa</a></li>
+          <li><a href="#" class="menu-count" data-count="2"><i class="fa fa-bars"></i> 2 osaa</a></li>
+          <li><a href="#" class="menu-count" data-count="3"><i class="fa fa-bars"></i> 3 osaa</a></li>
+          <li><a href="#" class="menu-count" data-count="4"><i class="fa fa-bars"></i> 4 osaa</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a data-toggle="dropdown" class="hidden-xs dropdown-toggle" href="#" title="Toiminnot">
+          <i class="fa fa-gear"></i> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#" class="menu-size" data-size="1"><i class="fa fa-desktop"></i> Sovita näytön kokoon</a></li>
+          <li><a href="#" class="menu-size" data-size="2"><i class="fa fa-desktop"></i> Suuri koko</a></li>
+          <li><a href="#" class="menu-size" data-size="3"><i class="fa fa-file-o"></i> Sovita kokoon A3</a></li>
+          <li><a href="#" class="menu-size" data-size="4"><i class="fa fa-file-o"></i> Sovita kokoon A4</a></li>
+          <li class="divider"></li>
+          <li><a href="#" id="menu-print"><i class="fa fa-print"></i> Tulosta</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    
+    <form class="navbar-form navbar-left hidden-xs" method="get" action="/live/graphical">
+    
+      
+      <select id="sheet-list" class="form-control" name="s">
+        
+        <option value="hpkjy" >Haapamäki - Jyväskylä</option>
+        
+        <option value="hpksk" >Haapamäki - Seinäjoki</option>
+        
+        <option value="hnkri" >Hanko - Riihimäki</option>
+        
+        <option value="hkikap" >Helsinki - Ilmala ratapiha - Käpylä</option>
+        
+        <option value="hkike" >Helsinki - Kerava</option>
+        
+        <option value="hkikkn" >Helsinki - Kirkkonummi - Siuntio</option>
+        
+        <option value="hkilpv" selected>Helsinki - Leppävaara</option>
+        
+        <option value="hkiri" >Helsinki - Riihimäki</option>
+        
+        <option value="hkitku" >Helsinki - Turku</option>
+        
+        <option value="hpltkl" >Huopalahti - Tikkurila</option>
+        
+        <option value="ilmkon" >Iisalmi - Kontiomäki, Murtomäki - Talvivaara, Murtomäki - Otanmäki</option>
+        
+        <option value="ilmyv" >Iisalmi - Ylivieska</option>
+        
+        <option value="imrjns" >Imatra - Joensuu, Säkäniemi - Niirala</option>
+        
+        <option value="jnsilo" >Joensuu - Ilomantsi</option>
+        
+        <option value="jnskon" >Joensuu - Kontiomäki</option>
+        
+        <option value="jyhpj" >Jyväskylä - Haapajärvi</option>
+        
+        <option value="jypm" >Jyväskylä - Pieksämäki</option>
+        
+        <option value="jyaki" >Jyväskylä - Äänekoski</option>
+        
+        <option value="krtku" >Karjaa - Turku</option>
+        
+        <option value="kelh" >Kerava - Lahti</option>
+        
+        <option value="kytsld" >Kerava - Sköldvik, Olli - Porvoo, Kerava - Vuosaari</option>
+        
+        <option value="kokyv" >Kokkola - Ylivieska</option>
+        
+        <option value="konol" >Kontiomäki - Oulu</option>
+        
+        <option value="konvus" >Kontiomäki - Vartius, Kontiomäki - Ämmänsaari</option>
+        
+        <option value="kvimt" >Kouvola - Imatra, Luumäki - Vainikkala</option>
+        
+        <option value="kvkts" >Kouvola - Kotka, Juurikorpi - Hamina, Kouvola - Kuusankoski</option>
+        
+        <option value="kvpm" >Kouvola - Pieksämäki, Mynttilä - Ristiina</option>
+        
+        <option value="lvsha" >Loviisa - Heinola</option>
+        
+        <option value="nnskio" >Niinisalo - Kihniö</option>
+        
+        <option value="olkja" >Oulu - Kemijärvi, Laurila - Kolari</option>
+        
+        <option value="parsl" >Parikkala - Savonlinna</option>
+        
+        <option value="pmilm" >Pieksämäki - Iisalmi</option>
+        
+        <option value="pmjns" >Pieksämäki - Joensuu, Huutokoski - Kommila</option>
+        
+        <option value="pmkon" >Pieksämäki - Kontiomäki</option>
+        
+        <option value="pnapts" >Pännäinen - Alholma, Kokkola - Ykspihlaja, Tuomioja - Raahe</option>
+        
+        <option value="rmipm" >Rantasalmi - Pieksämäki</option>
+        
+        <option value="rikv" >Riihimäki - Kouvola</option>
+        
+        <option value="ritpe" >Riihimäki - Tampere</option>
+        
+        <option value="skksk" >Seinäjoki - Kaskinen</option>
+        
+        <option value="skkok" >Seinäjoki - Kokkola</option>
+        
+        <option value="skvs" >Seinäjoki - Vaasa</option>
+        
+        <option value="skyv" >Seinäjoki - Ylivieska</option>
+        
+        <option value="sijvnj" >Siilinjärvi - Viinijärvi</option>
+        
+        <option value="tpehpk" >Tampere - Haapamäki</option>
+        
+        <option value="tpejy" >Tampere - Jyväskylä</option>
+        
+        <option value="tpemn" >Tampere - Mäntyluoto, Kokemäki - Rauma</option>
+        
+        <option value="tpepm" >Tampere - Pieksämäki</option>
+        
+        <option value="tpesk" >Tampere - Seinäjoki</option>
+        
+        <option value="tkutl" >Turku - Toijala, Toijala - Valkeakoski</option>
+        
+        <option value="tkuukp" >Turku - Uusikaupunki, Raisio - Naantali</option>
+        
+        <option value="yvol" >Ylivieska - Oulu</option>
+        
+      </select>
+    </form>
+
+    <ul class="nav navbar-nav">
+      <li>
+         <input type="hidden" id="calendar-date" name="calendar-date">
+         <a href="#" id="menu-calendar" title="Siirry päivään">
+          <i style="font-size: 130%" class="fa fa-calendar"></i>
+        </a>
+      </li>
+      
+      <li>
+         <a class="hidden-xxs" href="#" id="menu-now" title="Nyt">
+          <i style="font-size: 130%" class="fa fa-clock-o"></i>
+        </a>
+      </li>
+      
+      
+      <li>
+         <a href="#" id="menu-prev" title="Taaksepäin ajassa">
+          <i class="fa fa-chevron-left"></i>
+        </a>
+      </li>
+      <li>
+         <a href="#" id="menu-next" title="Eteenpäin ajassa">
+          <i class="fa fa-chevron-right"></i>
+        </a>
+      </li>
+      <li class="visible-xs-block visible-sm-block">
+        
+        <a href="/live/graphical/">
+        
+          <i class="fa fa-times"></i>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right hidden-xs hidden-sm">
+      <li>
+        
+        <a href="/live/graphical/">
+        
+          <i class="fa fa-times"></i> <span>Sulje</span>
+        </a>
+      </li>
+    </ul>
+
+    <form class="navbar-right form-inline visible-lg" role="search" method="get" action="#">
+      <input id="nav-search" type="text" name="q" class="form-control input-sm" placeholder="Numero tai paikka">
+      <button type="submit" id="search" class="btn btn-success btn-xs" title="Etsi"><i class="fa fa-search"></i></button>
+    </form>
+
+  </div>
+</div>
+
+
+    </div>
+  </nav><div class="container-fluid white-content" id="content">
+  
+
+    <div id="alerts">
+        
+    </div>
+
+<div id="graphical-container" class="graphical-container-live">
+
+  <svg id="graphical-main" version="1.1" xmlns="http://www.w3.org/2000/svg" style="width: 100%;">
+  </svg>
+</div>
+
+<div id="graphical-live-log" class="hidden-xs hidden-sm">
+  <div id="graphical-log-title">Tapahtumaloki</div>
+</div>
+
+
+  </div><script src="/scripts/lib/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="/scripts/script.js"></script>
+
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-61704712-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  
+
+  
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  window.julia = {};
+  window.julia.isLive = true;
+  window.julia.startDate = '8.1.2026';
+  window.julia.currentTime = '2026-01-08 16:39:58';
+</script>
+
+<h1>Trains currently in traffic</h1>
+
+<table border="1">
+    <tr>
+        <th>Number</th>
+        <th>Type</th>
+        <th>Operator</th>
+    </tr>
+    <tr th:each="train : ${trains}">
+        <td th:text="${train.trainNumber}"></td>
+        <td th:text="${train.trainType}"></td>
+        <td th:text="${train.operator}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
